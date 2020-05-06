@@ -45,28 +45,61 @@ public class Cuenta {
     public String toString(){
         String textoADevolver;
         
-        try{
-            textoADevolver = this.titular + " tiene " + this.cantidad;
-        }catch(Exception e){
-            textoADevolver = "El titular es: " + this.titular;
+        if(getCantidad() != 0 ){
+            textoADevolver = getTitular() + " tiene la cantidad de  : " + getCantidad() + ".";
+        }else{
+            textoADevolver = getTitular() + " tiene la cuenta vacía.";
         }
-        
+     
         return textoADevolver;
     }
     /**********************************************************************************************/
-    // Métodos Personales
-    
+                                // Métodos Personales
+    // Método Ingresar
+    // Descripción:
+    /* Este método recibe un parámetro double, el cuál se sumará a la cantidad del titular.
+     * En caso de que introduzca una cantidad negativa, no hará nada.
+     */
     public void ingresarCuenta( double ingresos ){
         
-        if( cantidad>=0 ){
+        if( ingresos>=0 ){
             setCantidad( getCantidad() + ingresos );
-            System.out.println( "El cambio se ha efectuado." );
+            System.out.println("-----------------------------------------------");
+            System.out.println( "El ingreso se ha efectuado." );
             System.out.println( "El titular " + getTitular() + " tiene " + getCantidad() );
+            System.out.println("-----------------------------------------------");
         }else{
-            System.out.println( "El cambio no se ha efectuado." );
+            System.out.println("-----------------------------------------------");
+            System.out.println( "El ingreso no se ha efectuado." );
             System.out.println( "El titular " + getTitular() + " tiene " + getCantidad() );
+            System.out.println("-----------------------------------------------");
         }
-        
     }
+    
+    // Método Retirar
+    // Descripción:
+    /* Este método recibe un parámetro de cantidad , con el cuál creo una variable llamada calculo,
+    para comprobar que la cantidad retirada con la cantidad del titular, no sea mayor a está y si lo fuera que su cantidad,
+    es decir su saldo, sea 0.
+    */
+     public void retirarCuenta(double cantidad){
+        double calculo = (getCantidad()-cantidad);
+        
+        if(calculo <=0){
+            setCantidad(0);
+            System.out.println("-----------------------------------------------");
+            System.out.println( "Se ha retirado la cantidad." );
+            System.out.println("La cuenta del titular : " + getTitular() + " tiene este saldo : " + getCantidad());
+            System.out.println("-----------------------------------------------");
+        }else{
+            setCantidad(calculo);
+            System.out.println("-----------------------------------------------");
+            System.out.println( "El saldo de la cuenta está vacío." );
+            System.out.println("La cuenta del titular : " + getTitular() + " tiene este saldo : " + getCantidad());
+            System.out.println("-----------------------------------------------");
+        }
+    }
+    
+    
 
 }
