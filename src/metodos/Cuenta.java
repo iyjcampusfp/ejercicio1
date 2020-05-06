@@ -92,7 +92,7 @@ public class Cuenta {
             System.out.println("La cuenta del titular : " + getTitular() + " tiene este saldo : " + getCantidad());
             System.out.println("-----------------------------------------------");
         }else{
-            setCantidad(calculo); 
+            setCantidad(calculo);  
             System.out.println("-----------------------------------------------");
             System.out.println( "Se ha retirado : " + retirar + "." );
             System.out.println("La cuenta del titular : " + getTitular() + " tiene este saldo : " + getCantidad());
