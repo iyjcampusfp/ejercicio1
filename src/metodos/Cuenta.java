@@ -82,19 +82,19 @@ public class Cuenta {
     para comprobar que la cantidad retirada con la cantidad del titular, no sea mayor a está y si lo fuera que su cantidad,
     es decir su saldo, sea 0.
     */
-     public void retirarCuenta(double cantidad){
-        double calculo = (getCantidad()-cantidad);
+     public void retirarCuenta(double retirar){
+        double calculo = (getCantidad()-retirar);
         
         if(calculo <=0){
             setCantidad(0);
             System.out.println("-----------------------------------------------");
-            System.out.println( "Se ha retirado la cantidad." );
+            System.out.println( "El saldo de la cuenta está vacío." );
             System.out.println("La cuenta del titular : " + getTitular() + " tiene este saldo : " + getCantidad());
             System.out.println("-----------------------------------------------");
         }else{
             setCantidad(calculo);
             System.out.println("-----------------------------------------------");
-            System.out.println( "El saldo de la cuenta está vacío." );
+            System.out.println( "Se ha retirado : " + retirar + "." );
             System.out.println("La cuenta del titular : " + getTitular() + " tiene este saldo : " + getCantidad());
             System.out.println("-----------------------------------------------");
         }
