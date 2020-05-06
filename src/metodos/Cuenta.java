@@ -56,11 +56,17 @@ public class Cuenta {
     /**********************************************************************************************/
     // Métodos Personales
     
-    
-    
-    
-    
-    
-    
-    
+    public void ingresarCuenta( double ingresos ){
+        
+        if( cantidad>=0 ){
+            setCantidad( getCantidad() + ingresos );
+            System.out.println( "El cambio se ha efectuado." );
+            System.out.println( "El titular " + getTitular() + " tiene " + getCantidad() );
+        }else{
+            System.out.println( "El cambio no se ha efectuado." );
+            System.out.println( "El titular " + getTitular() + " tiene " + getCantidad() );
+        }
+        
+    }
+
 }
